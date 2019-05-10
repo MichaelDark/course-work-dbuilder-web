@@ -12,6 +12,21 @@ class _PageState extends State<Page> {
       appBar: AppBar(
         centerTitle: true,
         title: Text('Title'),
+        leading: GestureDetector(
+          onTap: () => Navigator.of(context).pop(),
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.all(5),
+              child: Text(
+                'Back',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
       body: Center(
         child: Container(),

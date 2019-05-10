@@ -1,3 +1,4 @@
+import 'package:dbuilder_web/pages/home_page.dart';
 import 'package:flutter_web/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -12,6 +13,21 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text('Login'),
+        leading: GestureDetector(
+          onTap: () => Navigator.of(context).pop(),
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.all(5),
+              child: Text(
+                'Back',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
       body: Center(
         child: SizedBox(
@@ -33,7 +49,10 @@ class _LoginPageState extends State<LoginPage> {
                     return RaisedButton(
                       child: Text('Login'),
                       onPressed: () {
-                        //TODO
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(builder: (_) => HomePage()),
+                          (_) => false,
+                        );
                       },
                     );
                   },

@@ -1,5 +1,7 @@
 import 'package:flutter_web/material.dart';
 
+import 'home_page.dart';
+
 class RegisterPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _RegisterPageState();
@@ -12,6 +14,21 @@ class _RegisterPageState extends State<RegisterPage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text('Register'),
+        leading: GestureDetector(
+          onTap: () => Navigator.of(context).pop(),
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.all(5),
+              child: Text(
+                'Back',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
       body: Center(
         child: SizedBox(
@@ -41,7 +58,10 @@ class _RegisterPageState extends State<RegisterPage> {
                     return RaisedButton(
                       child: Text('Register'),
                       onPressed: () {
-                        //TODO
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(builder: (_) => HomePage()),
+                          (_) => false,
+                        );
                       },
                     );
                   },
